@@ -147,7 +147,8 @@ private:
     }
 
     // Publish the image message and increment the frame_id.
-    RCLCPP_INFO(get_logger(), "Publishing image #%zd", publish_number_++);
+    RCLCPP_INFO(get_logger(), "Publishing image #%zd", publish_number_);
+    publish_number_++;
     pub_->publish(std::move(msg));
   }
 
@@ -284,7 +285,7 @@ private:
     size_t size = frame.step * frame.rows;
     msg.data.resize(size);
     memcpy(&msg.data[0], frame.data, size);
-    msg.header.frame_id = frame_id_;
+    msg.header.frame_id = std::to_string(publish_number_);
   }
 
   cv::VideoCapture cap;
