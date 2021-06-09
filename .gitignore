@@ -51,4 +51,3 @@ qtcreator-*
 CATKIN_IGNORE
 .idea/
 cmake-build-debug/
-include/
