@@ -1,5 +1,5 @@
 # image_tools
-This is image tool package in order to send images from the offboard computer to the GCS which is one of 6 packages in the ros2 evaluation workingspace. This experiment aims to evaluate the Quality of Service (QoS) in ROS2.
+This is image tool package in order to send images from the offboard computer to the GCS(Ground Control Station) which is one of 6 packages in the ros2 evaluation workingspace. This experiment aims to evaluate the Quality of Service (QoS) in ROS2.
 ## How to build and run
 Please visit [here](https://github.com/LeQuangHien/operation_control).
 ## References
