@@ -80,8 +80,15 @@ private:
         process_image(msg, show_image_, this->get_logger());
       };
 
+      // manually enable topic statistics via options
+      auto options = rclcpp::SubscriptionOptions();
+      options.topic_stats_options.state = rclcpp::TopicStatisticsState::Enable;
+
+      // configure the topic name (default '/statistics')
+      options.topic_stats_options.publish_topic = "/statistics_image";
+
     RCLCPP_INFO(this->get_logger(), "Subscribing to topic '%s'", topic_.c_str());
-    sub_ = create_subscription<sensor_msgs::msg::Image>(topic_, qos, callback);
+    sub_ = create_subscription<sensor_msgs::msg::Image>(topic_, qos, callback, options);
   }
 
   IMAGE_TOOLS_LOCAL

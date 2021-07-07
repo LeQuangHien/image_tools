@@ -285,6 +285,7 @@ private:
     size_t size = frame.step * frame.rows;
     msg.data.resize(size);
     memcpy(&msg.data[0], frame.data, size);
+    msg.header.stamp = this->now();
     msg.header.frame_id = std::to_string(publish_number_);
   }
 
